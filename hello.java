@@ -1,11 +1,19 @@
+import java.util.Scanner;
 public class hello{
 	public static void main(String[] args){
-		String original = "Hello";
-		String reversed = "";
+		Scanner scanner = new Scanner(System.in);
 
-		for (int i = original.length() - 1; i >= 0; i--){
-			reversed +=original.charAt(i);
-		}
-		System.out.println(reversed);
+		System.out.print("Enter a string or phrase: ");
+		String original = scanner.nextLine();
+		
+		String cleaned = original.replaceAll("\\s","").toLowerCase();
+
+		String reversed = new StringBuilder(cleaned).reverse().toString();
+
+		if (cleaned.equals(reversed)) {
+            		System.out.println("\"" + original + "\" IS a palindrome!");
+       		 } else {
+           		 System.out.println("\"" + original + "\" is NOT a palindrome.");
+        }
 	}
 }
